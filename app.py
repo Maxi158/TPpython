@@ -1,3 +1,6 @@
+import random
+import string
+
 def generar_contrasena(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos):
     caracteres = ""
     if incluir_minusculas:
@@ -108,5 +111,6 @@ def main():
             print("Opción no válida. Por favor, selecciona 1, 2 o 3.")
 
 # Esto DEBE ESTAR al final del archivo y al mismo nivel que las definiciones de funciones (sin indentación)
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
+
