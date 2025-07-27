@@ -144,14 +144,14 @@ def fac_diet(tip_diet,can_dia):
 
     return cont4
 
-def cant_imp( cant_imp_tot,fac_elec,fac_gas,fac_diet,fac_res):
-    imp_tot = (fac_elec + fac_gas + fac_diet + fac_res)
+def cant_imp(res_elec,res_gas,res_diet,res_res):
+    imp_tot = (res_elec + res_gas + res_diet + res_res)
     print(f"\n Su impacto total es :{imp_tot}")
-    if cant_imp_tot < 20:
+    if imp_tot < 20:
         print ("Su huella es menor")
-    elif cant_imp_tot < 40:
+    elif imp_tot < 40:
         print ("Su huella es promedio")
-    elif cant_imp_tot < 60:
+    elif imp_tot < 60:
         print ("Su huella es muy alta")
     else:
         print("error")
@@ -166,31 +166,26 @@ def main():
 
         if opc_prin == "1":
             print("\n--- Calcular su impacto ambiental cotidiano ---")
-           
-            while True:
-                try:
                     
-                    fac_elec(
+            res_elec = fac_elec(
                         input("""\n ¿Cuántas personas viven en tu hogar? \n 1. 1 o 2 personas \n 2. 3 o 4 personas \n 3. 5 o mas personas \n Seleccione una opcion(1-3): """),
                         input("""\n ¿Cómo describirías el consumo eléctrico general de tu hogar? \n 1. Bajo (pocos electrodomésticos, uso consciente) \n 2. Medio (heladera, TV, PC, uso regular) \n 3. Alto (aire acondicionado/ estufas uso frecuente, muchos dispositivos) \n Seleccione una opcion(1-3): """),
                         input("""\n ¿Cuántas horas al día usaste electrodomésticos de alto consumo como el aire acondicionado/estufa? \n 1. Ninguna hora\n 2. 1 a 4 horas \n 3. Más de 4 horas \n Seleccione una opcion(1-3): """))
-                    fac_gas(
+            res_gas = fac_gas(
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """),
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """),
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """))
-                    fac_res(
+            res_res = fac_res(
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """),
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """))
-                    fac_diet(
+            res_diet = fac_diet(
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """),
                         input("""\n op1\n op2 \n op3\n Seleccione una opcion(1-3): """)) 
 
-                except ValueError:
-                    print("Entrada inválida. Por favor, ingrese un número para la longitud.")
-                
+            cant_imp(res_elec,res_gas,res_diet,res_res)
 
         elif opc_prin == "4":
-            print("¡Gracias por usar el Generador de Contraseñas! ¡Adiós!")
+            print("¡Gracias por usar la calculadora de huella ambiental! ¡Adiós!")
             break
 
         else:
